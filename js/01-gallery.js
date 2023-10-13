@@ -1,6 +1,5 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
-
 console.log(galleryItems);
 
 const gallery = document.querySelector(".gallery")
@@ -19,30 +18,9 @@ const item = galleryItems.map(({ preview, original, description }) => {
 }).join("");
 gallery.insertAdjacentHTML("beforeend", item)
 gallery.addEventListener("click", imageClick)
-
-function imageClick(event) {
-     event.preventDefault();
-     const target = event.target;
-     if (target.classList.contains('gallery__image')) {
-         const originalImageUrl = target.dataset.source;
-         modal = basicLightbox.create(`
-         <img src="${originalImageUrl}" width="800" height="600">
-         `);
-         modal.show();
-         modalIsOpen = true;
-     }
-     document.addEventListener('keydown', keyDown);
- }
-
-
-
-
-
-
-
 function imageClick(evt) {
     noLink(evt)
-    if (evt.target.nodeNeme !== "IMG") {
+    if (evt.target.nodeName !== "IMG") {
         return;
     }
     const source = evt.target.dataset.source;
