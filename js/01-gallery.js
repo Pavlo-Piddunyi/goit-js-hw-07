@@ -6,9 +6,8 @@ const gallery = document.querySelector(".gallery")
 const item = galleryItems.map(({ preview, original, description }) => {
     return `<li class="gallery__item">
   <a class="gallery__link"  href="${original}">
-        <img
-        loading="lazy"
-      class="gallery__image"
+    <img class="gallery__image"
+      loading="lazy"
       src="${preview}"
       data-source="${original}"
       alt="${description}"
@@ -24,9 +23,9 @@ function imageClick(evt) {
         return;
     }
     const source = evt.target.dataset.source;
-    console.log(source)
+    // console.log(source)
     const discribe = evt.target.getAttribute('alt');
-    console.dir(discribe)
+    // console.dir(discribe)
     const instance = basicLightbox.create(`<img src="${evt.target.dataset.source}" alt="${discribe}">`);
     instance.show();
     gallery.addEventListener("keydown", (evt) => {
